@@ -4,10 +4,22 @@ on:
   push:
     paths: 
       - 'src/**'
+
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10
+  
   build:
     runs-on: ubuntu-latest
-
+    needs: [test, lint]
+    
     steps:
       - name: Get my code
         uses: actions/checkout@v4
