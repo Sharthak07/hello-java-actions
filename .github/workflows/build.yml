@@ -30,6 +30,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Use fake API key
+        run: echo "Connecting to API with key ${{ secrets.MY_API_KEY }}"
+
       - name: Build my Java project
         run: mvn clean package
 
